@@ -1,0 +1,23 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Title</th>
+        <th>Product Id</th>
+        <th>Product Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let category of categoryDataList">
+        <ng-container *ngFor="let product of category.products; let i = index">
+          <tr>
+            <td *ngIf="i === 0" [attr.rowspan]="category.products.length">{{ category.cid }}</td>
+            <td *ngIf="i === 0" [attr.rowspan]="category.products.length">{{ category.title }}</td>
+            <td>{{ product.pid }}</td>
+            <td>{{ product.productName }}</td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+  

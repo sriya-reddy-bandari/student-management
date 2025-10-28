@@ -1,0 +1,26 @@
+
+<table border="1">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>About</th>
+        <th>Laptop Model</th>
+        <th>Laptop Brand</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentDataList">
+        <td>{{ student.studentName }}</td>
+        <td>{{ student.about }}</td>
+        <td>{{ student.laptop?.modelNumber }}</td>
+        <td>{{ student.laptop?.brand }}</td>
+        <td>
+          <div *ngFor="let address of student.addressList">
+            {{address.addressId}}{{ address.street }}, {{ address.city }}, {{ address.country }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

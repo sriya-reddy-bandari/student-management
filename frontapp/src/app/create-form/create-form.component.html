@@ -1,0 +1,58 @@
+<div class="form-container">
+  <h2>{{ isEditable ? 'Update' : 'Create' }} Form</h2>
+
+
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    
+  
+    <div>
+      <label>Name:</label>
+      <input type="text" formControlName="name" />
+      <div class="error" *ngIf="createForm.get('name')?.invalid && createForm.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="email" formControlName="email" />
+      <div class="error" *ngIf="createForm.get('email')?.invalid && createForm.get('email')?.touched">
+        Enter a valid email.
+      </div>
+    </div>
+
+  
+    <div>
+      <label>Mobile Number:</label>
+      <input type="tel" formControlName="mobilenumber" />
+      <div class="error" *ngIf="createForm.get('mobilenumber')?.invalid && createForm.get('mobilenumber')?.touched">
+        Enter a valid 10-digit mobile number.
+      </div>
+    </div>
+
+
+    <div>
+      <label>Address:</label>
+      <textarea formControlName="address"></textarea>
+      <div class="error" *ngIf="createForm.get('address')?.invalid && createForm.get('address')?.touched">
+        Address is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="createForm.invalid" class="submit-btn">
+      {{ isEditable ? 'Update' : 'Submit' }}
+    </button>
+
+  </form>
+
+
+  <div>
+    <button (click)="navigateTo('list')">List</button>
+    <button (click)="navigateTo('student')">Student</button>
+    <button (click)="navigateTo('categories')">categories</button>
+    <button (click)="logout()">logout</button>
+  </div>
+
+</div>
+
+  

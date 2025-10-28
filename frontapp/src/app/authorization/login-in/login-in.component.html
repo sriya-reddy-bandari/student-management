@@ -1,0 +1,11 @@
+<form (ngSubmit)="login()">
+    <input type="text" [(ngModel)]="loginRequest.username" name="username" placeholder="Username" required />
+    <input type="password" [(ngModel)]="loginRequest.password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+  <p *ngIf="errorMessage">{{ errorMessage}}</p>
+
+  <div>
+    <button (click)="navigateTo('sign-in')">Sign In</button>
+  </div>
+  

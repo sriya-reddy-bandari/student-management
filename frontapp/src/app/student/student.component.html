@@ -1,0 +1,58 @@
+<h2>Student Form</h2>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+
+  <label >Student Name:</label>
+  <input type="text" formControlName="studentName" />
+  <br />
+
+
+  <label >About:</label>
+  <textarea formControlName="about"></textarea>
+  <br />
+
+  <h3>Laptop Details</h3>
+  <div formGroupName="laptop">
+    <label >Laptop ID:</label>
+    <input type="number" formControlName="laptopId" />
+    <br />
+
+    <label >Model Number:</label>
+    <input  type="text" formControlName="modelNumber" />
+    <br />
+
+    <label>Brand:</label>
+    <input  type="text" formControlName="brand" />
+  </div>
+
+
+  <h3>Address List</h3>
+  <div formArrayName="addressList">
+    <div *ngFor="let address of addressList.controls; let i = index" [formGroupName]="i">
+      <label>Address Id:</label>
+      <input type="number" formControlName="addressId" />
+
+      <label>Street:</label>
+      <input type="text" formControlName="street" />
+
+      <label>City:</label>
+      <input type="text" formControlName="city" />
+
+      <label>Country:</label>
+      <input type="text" formControlName="country" />
+
+      <button type="button" (click)="removeAddress(i)">Remove</button>
+    
+    </div>
+  </div>
+
+  <button type="button" (click)="addAddress()">Add Address</button>
+  <br /><br />
+
+  <button type="submit">Submit</button>
+
+  <button (click)="navigateTo('studentList')">Student List</button> 
+
+</form>
+

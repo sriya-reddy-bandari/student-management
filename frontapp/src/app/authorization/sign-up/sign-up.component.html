@@ -1,0 +1,7 @@
+<form (ngSubmit)="signIn()">
+    <input type="text" [(ngModel)]="user.username" name="username" placeholder="Username" required />
+    <input type="password" [(ngModel)]="user.password" name="password" placeholder="Password" required />
+    <input type="text" [(ngModel)]="user.role" name="role" placeholder="Role (e.g., USER)" required />
+    <button type="submit">Sign In</button>
+  </form>
+<p *ngIf="message">{{ message }}</p>

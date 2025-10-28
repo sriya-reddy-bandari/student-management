@@ -1,0 +1,36 @@
+<h2>Category Form</h2>
+
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+
+
+  <label >Category Name:</label>
+  <input type="text" formControlName="cid" />
+  <br />
+
+
+  <label >Title:</label>
+  <textarea formControlName="title"></textarea>
+  <br />
+
+
+  <h3>Product</h3>
+  <div formArrayName="products">
+    <div *ngFor="let product of products.controls; let i = index" [formGroupName]="i">
+      <label>product Id:</label>
+      <input type="text" formControlName="pid" />
+      <label>Name:</label>
+      <input type="text" formControlName="productName" />
+      <button type="button" (click)="removeProduct(i)">Remove</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addProducts()">Add Product</button>
+  <br /><br />
+
+  <button type="submit">Submit</button>
+
+  <button (click)="navigateTo('categoryList')">Category List</button> 
+
+</form>
+
+
